@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Do You Love Me?</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #fbfbfa;
+    }
+
+    .container {
+      text-align: center;
+      width: 100%;
+    }
+
+    h1 {
+      color: #ff5c8a;
+    }
+
+    img {
+      width: 200px;
+      margin-bottom: 20px;
+    }
+
+    .buttons {
+      position: relative;
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+    }
+
+    button {
+      padding: 12px 30px;
+      font-size: 18px;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    #yes {
+      background-color: #ff5c8a;
+      color: white;
+      z-index: 1;
+    }
+
+    #no {
+      background-color: #d3d3d3;
+      position: absolute;
+      transform: translateX(54px);
+    }
+
+    /* Page 2 */
+    .page2 {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE 1 -->
+  <div class="container page1">
+    <img src="page1.gif" alt="cute gif">
+    <h1>Do you love me? 💕</h1>
+
+    <div class="buttons">
+      <button id="yes">Yes</button>
+      <button style="opacity: 0;">No</button>
+      <button id="no">No</button>
+    </div>
+  </div>
+
+  <!-- PAGE 2 -->
+  <div class="container page2">
+    <img src="page2.gif" alt="love gif">
+    <h1>I know u love me 💖</h1>
+    <p>Here’s hug for u babe🌸</p>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("no");
+    const yesBtn = document.getElementById("yes");
+    const page1 = document.querySelector(".page1");
+    const page2 = document.querySelector(".page2");
+    const body = document.body;
+
+    noBtn.addEventListener("mouseover", () => {
+      const x = Math.random() * 300 - 150;
+      const y = Math.random() * 120 - 60;
+
+      noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    });
+
+    yesBtn.addEventListener("click", () => {
+      page1.style.display = "none";
+      page2.style.display = "block";
+      body.style.background = "#fff"
+    });
+  </script>
+
+</body>
+</html>
